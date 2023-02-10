@@ -89,8 +89,8 @@ export class JobPackageGenerator extends EventEmitter {
 
     private transferApplicationFiles() {
         [
-            [Config.resumeFiles[this.jobInfo.type], Path.resolve(this.package.path, Config.resumeFilename)],
-            [Config.resumeFileOriginals[this.jobInfo.type], Path.resolve(this.package.path, Config.resumeFileOriginalName)],
+            // [Config.resumeFiles[this.jobInfo.type], Path.resolve(this.package.path, Config.resumeFilename)],
+            [Config.resumeFileOriginals[this.jobInfo.type], Path.resolve(this.package.path, `${this.formatOsCompatibleString(this.jobInfo.company)}_${Config.resumeFileOriginalName}`)],
             [Config.coverLetterFiles[this.jobInfo.type], Path.resolve(this.package.path, `${this.formatOsCompatibleString(this.jobInfo.company)}_${Config.coverLetterFilename}`)]
         ].map((transfer, index, { length })=>{
             Fs.copyFile(transfer[0], transfer[1], (err)=> {

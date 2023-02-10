@@ -108,6 +108,12 @@ class DomRenderer {
 					}
 					console.log(`SET ${String(key)}: ${this.jobInfo[String(key)]}`);
 					return true;
+				},
+				get: (target, key)=> {
+					if (key === 'type' && target[key].length === 0) {
+						this.jobInfo.type = Config.roleTypeOptions[0];
+					}
+					return target[String(key)]
 				}
 			});
 		}

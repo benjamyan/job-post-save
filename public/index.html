@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jobs</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <style>
+        body {
+            --bg-color: #fff;
+            --font-color: #000;
+        }
+        body.dark {
+            --bg-color: #333;
+            --font-color: #fff;
+        }
+        body {
+            overflow: hidden;
+        }
+        body,
+        body * {
+            color: var(--font-color);
+            background-color: var(--bg-color);
+        }
+        form {
+            width: calc(100% - 50px);
+            height: 100%;
+            padding: 25px;
+            text-align: left;
+        }
+        section, select, input, textarea {
+            display: block;
+            width: 100%;
+            padding: 5px;
+            font-size: 14px;
+        }
+        select {
+            width: 35%;
+            display: inline-block;
+            text-transform: capitalize;
+        }
+        input:first-of-type {
+            width: 55%;
+            margin-left: 5%;
+            display: inline-block;
+        }
+        input:nth-of-type(2) {
+            margin-top: 15px;
+        }
+        input:not(:first-of-type) {
+            margin-bottom: 15px;
+            max-width: calc(100% - 18px);
+        }
+        textarea {
+            max-width: calc(100% - 18px);
+            height: 300px;
+            margin-bottom: 15px;
+        }
+        input[type='button'],
+        input[type='submit'] {
+            display: inline-block;
+            margin: 0 auto;
+            text-align: center;
+            width: 50%;
+        }
+        input[type='submit'] {
+            margin-left: 5%;
+            width: calc(50% - 6%)
+        }
+    </style>
+</head>
+<body class="dark">
+    <button onclick="document.body.className === 'dark' ? document.body.className = '' : document.body.className = 'dark';">Theme</button>
+    <div id="root"></div>
+</body>
+</html>

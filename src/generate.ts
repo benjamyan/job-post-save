@@ -2,7 +2,7 @@ import * as Fs from 'fs';
 import * as Path from 'path';
 import { EventEmitter } from 'events'
 import { JobInfoPackage } from "./types";
-import * as Config from './config';
+import * as Config from './constants';
 
 export class JobPackageGenerator extends EventEmitter {
     private jobInfo: JobInfoPackage = null!;

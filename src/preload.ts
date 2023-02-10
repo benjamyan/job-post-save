@@ -1,4 +1,4 @@
-import * as Config from './config';
+import * as Config from './constants';
 import { JobInfoPackage } from './types';
 // import { generateJobApplicationPackage } from './generate';
 import { JobPackageGenerator } from './generate';

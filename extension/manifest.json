@@ -1,0 +1,31 @@
+{
+	"manifest_version": 2,
+	"version": "1.0",
+	"name": "Test",
+	"content_scripts": [
+		{
+			"matches": [
+				"<all_urls>"
+			],
+			"js": [
+				"dist/main.js"
+			]
+		}
+	],
+	"browser_action": {
+		"default_icon": "icon.png",
+		"scripts": [
+			"dist/main.js"
+		],
+		"default_popup": "public/menu.html"
+	},
+	"background": {
+		"scripts": [
+			"dist/main.js"
+		]
+	},
+	"permissions": [
+		"tabs",
+		"https://localhost/*"
+	]
+}

@@ -1,0 +1,46 @@
+{
+    "jobs": [
+        {
+            "abs_url": "https://jobs.lever.co/CopyAI/062b5ebb-c2ee-44ef-a455-6546c6ebd380?lever-source=LinkedInJobs",
+            "job_title": "Senior Frontend Engineer",
+            "role_type": "frontend",
+            "company_name": "CopyAI",
+            "yoe": "8",
+            "keywords": [ "React", "NodeJS", "SQL", "TypeScript"],
+            "severity": 2,
+            "date_scraped": "02/14/2023",
+            "date_posted": "",
+            "date_applied": null,
+            "_applied": false,
+            "_guid": "86ce7220-c809-4a9d-b2bd-747ae56678cb"
+        },
+        {
+            "abs_url": "https://www.ycombinator.com/companies/golinks/jobs/k3k6PSz-frontend-engineer-entry-level?utm_source=syn_li",
+            "job_title": "Senior Frontend Engineer",
+            "role_type": "frontend",
+            "company_name": "GoLinks",
+            "yoe": "any",
+            "keywords": [ "JavaScript", "UI", "AJAX"],
+            "severity": 4,
+            "date_scraped": "02/10/2023",
+            "date_posted": "",
+            "date_applied": null,
+            "_applied": false,
+            "_guid": "0b946f3c-5705-4cbd-9321-76a11663e272"
+        },
+        {
+            "abs_url": "https://www.careers.macquarie.com/cw/en/job/970358/swat-ui-engineer?lApplicationSubSourceID=17308",
+            "job_title": "SWAT UI Engineer",
+            "role_type": "frontend",
+            "company_name": "Macquarie",
+            "yoe": "",
+            "keywords": [ "JavaScript", "TypeScript", "UI", "AJAX"],
+            "severity": 5,
+            "date_scraped": "02/05/2023",
+            "date_posted": "",
+            "date_applied": null,
+            "_applied": false,
+            "_guid": "66a70dd3-6c9c-4a09-8d44-4e107f4de15f"
+        }
+    ]
+}

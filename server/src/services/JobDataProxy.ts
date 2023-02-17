@@ -1,24 +1,27 @@
 import { JobPostServerApplication } from '../Base';
 
-const JobDataProxy = (jsonFilePath: string)=> {
-    const jobData: Record<string, ApplicationGenerator.JobInfoEntry> = new Proxy(
-        {},
+const JobDataProxy = (jsonContent: Array<ApplicationGenerator.JobInfoEntry>)=> {
+    const jobData = new Proxy(
+        {} as Record<string, ApplicationGenerator.JobInfoEntry>,
         {
-            set(target: typeof jobData, key: string, value: ApplicationGenerator.JobInfoEntry) {
+            set(target, key: string, value: ApplicationGenerator.JobInfoEntry) {
                 target[key] = value;
                 return true   
+            },
+            get(target, key: string) {
+                return target[key];
             }
         }
     );
-    const jobInfoFromFile = require(jsonFilePath);
+    // const jobInfoFromFile = require(jsonFilePath);
 
-    if (jobInfoFromFile.jobs === undefined) {
+    if (jsonContent === undefined) {
         JobPostServerApplication.emitter('error', {
             error: new Error('Failed to get job info file data.'),
             severity: 2
         });
     } else {
-        for (const job of jobInfoFromFile.jobs) {
+        for (const job of jsonContent) {
             jobData[job._guid] = job;
         }
     }
@@ -27,6 +30,34 @@ const JobDataProxy = (jsonFilePath: string)=> {
 }
 
 export { JobDataProxy }
+
+
+
+// const JobDataProxy = (jsonFilePath: string)=> {
+//     const jobData: Record<string, ApplicationGenerator.JobInfoEntry> = new Proxy(
+//         {},
+//         {
+//             set(target: typeof jobData, key: string, value: ApplicationGenerator.JobInfoEntry) {
+//                 target[key] = value;
+//                 return true   
+//             }
+//         }
+//     );
+//     const jobInfoFromFile = require(jsonFilePath);
+
+//     if (jobInfoFromFile.jobs === undefined) {
+//         JobPostServerApplication.emitter('error', {
+//             error: new Error('Failed to get job info file data.'),
+//             severity: 2
+//         });
+//     } else {
+//         for (const job of jobInfoFromFile.jobs) {
+//             jobData[job._guid] = job;
+//         }
+//     }
+
+//     return jobData;
+// }
 
 
 

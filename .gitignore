@@ -6,6 +6,7 @@ out/
 *.bak.*
 .env
 .env.*
+*.db
 
 OUTLINE.md
 

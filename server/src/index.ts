@@ -1,3 +1,3 @@
 import { JobPostServer } from './Server';
 
-new JobPostServer()// .init();
+new JobPostServer(); 

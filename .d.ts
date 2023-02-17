@@ -1,4 +1,5 @@
 /// <reference path='node:events' />
+/// <reference path='uuid' />
 
 declare namespace ApplicationGenerator {
     export interface BaselineError {
@@ -20,9 +21,13 @@ declare namespace ApplicationGenerator {
         keywords: Array<string>,
         severity: number,
         date_scraped: string,
-        date_posted: string | null,
         date_applied: string | null,
         _applied: boolean,
         _guid: string
     }
+    export type NewJobInfoData = (
+        Pick<JobInfoEntry, 'abs_url' | 'company_name' | 'job_title'> & Partial<Omit<JobInfoEntry, 'keywords'>> & {
+            keywords?: string;
+        }
+    )
 }

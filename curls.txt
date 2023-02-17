@@ -1,0 +1,4 @@
+curl localhost:8010/jobs -i -X GET
+curl localhost:8010/jobs?id=ba499a78-fd7a-485d-bd8b-6f79f096e7ae -i -X GET
+curl localhost:8010/jobs -i -X POST -H "Content-Type: application/json" -d '{"hello":"world","severity":1}'
+curl localhost:8010/jobs -i -X POST -H "Content-Type: application/json" -d '{"abs_url":"https://www.careers.macquarie.com/cw/en/job/970358/swat-ui-engineer?lApplicationSubSourceID=17308","company_name":"Macquarie", "job_title": "SWAT UI Engineer"}'

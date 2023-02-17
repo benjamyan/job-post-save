@@ -7,6 +7,7 @@ import * as Path from 'path';
 import { JobRoutesHandler } from './routes';
 import { JobPostServerApplication, JobPostServerEvents } from './Base';
 import { JobDataProxy } from './services';
+import { json } from 'express';
 
 export class JobPostServer extends JobPostServerApplication {
 
@@ -16,10 +17,16 @@ export class JobPostServer extends JobPostServerApplication {
         this.on('server.start', this.initializeExpressServer);
         this.on('server.listening', ()=> {
             try {
-                Object.assign(
-                    this.jobInfo,
-                    JobDataProxy(Path.resolve(__dirname, this.app.locals.BASE_DIRECTORY + this.app.locals.JOB_INFO_FILE))
-                );
+                this.db.all('SELECT * FROM jobs', (error, rows)=> {
+                    if (error !== null) {
+                        this.emit('error', {
+                            error,
+                            severity: 1
+                        })
+                        return;
+                    }
+                    Object.assign( this.jobInfo, JobDataProxy(rows) );
+                });
                 this.setupServerRouting();
             } catch (err) {
                 this.emit('error', {
@@ -51,6 +58,9 @@ export class JobPostServer extends JobPostServerApplication {
     }
     
     private setupServerRouting() {
+        // this.app.use(bodyParser.json());
+        this.app.use(json());
+
         this.app.use(function(_req, res, next) {
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");

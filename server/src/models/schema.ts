@@ -1,0 +1,3 @@
+const dbSchema = {}
+
+export { dbSchema }

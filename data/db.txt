@@ -1,0 +1,7 @@
+DROP TABLE jobs;
+
+CREATE TABLE jobs (_guid STRING, abs_url STRING, job_title STRING, role_type STRING, company_name STRING, yoe VARCHAR(3), keywords STRING, severity INT, date_scraped STRING, date_applied STRING, _applied BOOL, UNIQUE(abs_url));
+
+INSERT INTO jobs VALUES ("86ce7220-c809-4a9d-b2bd-747ae56678cb", "https://jobs.lever.co/CopyAI/062b5ebb-c2ee-44ef-a455-6546c6ebd380?lever-source=LinkedInJobs", "Senior Frontend Engineer", "frontend", "CopyAI", "8", "React, NodeJS, SQL, TypeScript", 2, "02/14/2023", "", false);
+
+SELECT * FROM jobs;
